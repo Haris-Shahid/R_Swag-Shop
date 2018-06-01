@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HttpService from "../services/http-services";
+
+const http = new HttpService();
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    http.getProducts();
+  }
+
   render() {
     return (
       <div className="container App">
