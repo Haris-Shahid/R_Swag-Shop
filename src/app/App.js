@@ -23,13 +23,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container App">
+      <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div className="App-main" >
-          <Product />
+        <div className="container App-main" >
+          <div className="row" >
+            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
+            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
+            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
+          </div>
         </div>
       </div>
     );

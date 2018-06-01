@@ -1,0 +1,7 @@
+.product {
+    width: 20rem;
+}
+
+.product img {
+    max-height: 20rem;
+}
