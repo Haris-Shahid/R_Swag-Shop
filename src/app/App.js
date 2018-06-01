@@ -8,7 +8,16 @@ const http = new HttpService();
 class App extends Component {
   constructor(props) {
     super(props);
-    http.getProducts();
+    this.loadData = this.loadData.bind(this);
+    this.loadData();
+  }
+
+  loadData = () => {
+    http.getProducts().then(products => {
+      console.log(products)
+    }, err => {
+
+    })
   }
 
   render() {
