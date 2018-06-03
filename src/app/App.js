@@ -10,15 +10,29 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.loadData = this.loadData.bind(this);
+    this.productList = this.productList.bind(this);
     this.loadData();
+    this.state = {
+      products: []
+    };
   }
 
   loadData = () => {
+    var self = this;
     http.getProducts().then(products => {
-      console.log(products)
+      self.setState({ products })
     }, err => {
 
     })
+  }
+
+  productList = () => {
+    const list = this.state.products.map((product) =>
+      <div className="col-sm-4" key={product._id} >
+        <Product title={product.title} price={product.price} imgUrl={product.imgUrl} />
+      </div>
+    )
+    return list;
   }
 
   render() {
@@ -30,9 +44,7 @@ class App extends Component {
         </header>
         <div className="container App-main" >
           <div className="row" >
-            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
-            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
-            <Product className="col-sm-4" price="4.23" title="Cool Troy Gun" imgUrl="https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG" />
+            {this.productList()}
           </div>
         </div>
       </div>
