@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import HttpService from "../services/http-services";
 import Product from '../product/product';
+import WishList from '../wishlist/wistlist';
 
 const http = new HttpService();
 
@@ -44,7 +45,14 @@ class App extends Component {
         </header>
         <div className="container App-main" >
           <div className="row" >
-            {this.productList()}
+            <div className="col-sm-8" >
+              <div className="row" >
+                {this.productList()}
+              </div>
+            </div>
+            <div className="col-sm-4" >
+              <WishList />
+            </div>
           </div>
         </div>
       </div>
